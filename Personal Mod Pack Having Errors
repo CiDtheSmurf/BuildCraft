@@ -1,0 +1,273 @@
+Hey guys, I'm building a MP for myself, but I've come across an error and can't find the problem.
+This is the first MP I've built, so I don't know much about how to find and fix errors.
+Here's the crash report, please help ;_;
+---- Minecraft Crash Report ----
+// Would you like a cupcake?
+
+Time: 4/13/15 12:17 PM
+Description: There was a severe problem during mod loading that has caused the game to fail
+
+cpw.mods.fml.common.LoaderException: java.lang.NoSuchMethodError: buildcraft.api.core.StackKey.stack(Lnet/minecraft/block/Block;)Lbuildcraft/api/core/StackKey;
+	at cpw.mods.fml.common.LoadController.transition(LoadController.java:162)
+	at cpw.mods.fml.common.Loader.preinitializeMods(Loader.java:515)
+	at cpw.mods.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:239)
+	at net.minecraft.client.Minecraft.func_71384_a(Minecraft.java:480)
+	at net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:867)
+	at net.minecraft.client.main.Main.main(SourceFile:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+Caused by: java.lang.NoSuchMethodError: buildcraft.api.core.StackKey.stack(Lnet/minecraft/block/Block;)Lbuildcraft/api/core/StackKey;
+	at buildcraft.BuildCraftEnergy.preInit(BuildCraftEnergy.java:282)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at cpw.mods.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:513)
+	at sun.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
+	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
+	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
+	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
+	at cpw.mods.fml.common.LoadController.sendEventToModContainer(LoadController.java:208)
+	at cpw.mods.fml.common.LoadController.propogateStateMessage(LoadController.java:187)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74)
+	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47)
+	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322)
+	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:275)
+	at cpw.mods.fml.common.LoadController.distributeStateMessage(LoadController.java:118)
+	at cpw.mods.fml.common.Loader.preinitializeMods(Loader.java:513)
+	... 10 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 8.1 (amd64) version 6.3
+	Java Version: 1.8.0_25, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 240564080 bytes (229 MB) / 707534848 bytes (674 MB) up to 1060372480 bytes (1011 MB)
+	JVM Flags: 6 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.05 FML v7.10.85.1291 Minecraft Forge 10.13.2.1291 127 mods loaded, 127 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	FML{7.10.85.1291} [Forge Mod Loader] (forge-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized
+	Forge{10.13.2.1291} [Minecraft Forge] (forge-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized
+	AM2-Preloader{0.0.2} [AMCore] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	appliedenergistics2-core{rv2-beta-8} [AppliedEnergistics2 Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	Aroma1997Core{1.0.2.13} [Aroma1997Core] (Aroma1997Core-1.7.10-1.0.2.13.jar) Unloaded->Constructed->Pre-initialized
+	CodeChickenCore{1.0.4.35} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	NotEnoughItems{1.0.4.90} [Not Enough Items] (NotEnoughItems-1.7.10-1.0.4.90-universal.jar) Unloaded->Constructed->Pre-initialized
+	ThaumicTinkerer-preloader{0.1} [Thaumic Tinkerer Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	OpenModsCore{0.6} [OpenModsCore] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	<CoFH ASM>{000} [CoFH ASM Data Initialization] (minecraft.jar) Unloaded->Constructed->Pre-initialized
+	debug{1.0} [debug] (denseores-1.5.jar) Unloaded->Constructed->Pre-initialized
+	AnimationAPI{1.2.3} [AnimationAPI] (AnimationAPI-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	arsmagica2{1.4.0.008} [Ars Magica 2] (1.7.10_AM2-1.4.0.008.jar) Unloaded->Constructed->Pre-initialized
+	bspkrsCore{6.16} [bspkrsCore] ([1.7.10]bspkrsCore-universal-6.16.jar) Unloaded->Constructed->Pre-initialized
+	ArmorStatusHUD{1.28} [ArmorStatusHUD] ([1.7.10]ArmorStatusHUD-client-1.28.jar) Unloaded->Constructed->Pre-initialized
+	DirectionHUD{1.24} [DirectionHUD] ([1.7.10]DirectionHUD-client-1.24.jar) Unloaded->Constructed->Pre-initialized
+	StatusEffectHUD{1.27} [StatusEffectHUD] ([1.7.10]StatusEffectHUD-client-1.27.jar) Unloaded->Constructed->Pre-initialized
+	IC2{2.2.695-experimental} [IndustrialCraft 2] (industrialcraft-2-2.2.695-experimental.jar) Unloaded->Constructed->Pre-initialized
+	AdvancedSolarPanel{1.7.10-3.5.1} [Advanced Solar Panels] (AdvancedSolarPanel-1.7.10-3.5.1.jar) Unloaded->Constructed->Pre-initialized
+	appliedenergistics2{rv2-beta-8} [Applied Energistics 2] (appliedenergistics2-rv2-beta-8.jar) Unloaded->Constructed->Pre-initialized
+	Aroma1997CoreHelper{1.0.2.13} [Aroma1997Core|Helper] (Aroma1997Core-1.7.10-1.0.2.13.jar) Unloaded->Constructed->Pre-initialized
+	Aroma1997sDimension{1.0} [Aroma1997's Dimensional World] (Aroma1997s-Dimensional-World-1.7.10-1.1.0.1.jar) Unloaded->Constructed->Pre-initialized
+	AromaBackup{0.0.0.5} [AromaBackup] (AromaBackup-1.7.10-0.0.0.5.jar) Unloaded->Constructed->Pre-initialized
+	bdlib{1.6.5.52} [BD Lib] (bdlib-mc1710-1.6.5.52.jar) Unloaded->Constructed->Pre-initialized
+	BetterChests{1.1.1.9} [BetterChests] (BetterChests-1.7.10-1.1.1.9.jar) Unloaded->Constructed->Pre-initialized
+	BiblioCraft{1.10.2} [BiblioCraft] (BiblioCraft[v1.10.2][MC1.7.10].jar) Unloaded->Constructed->Pre-initialized
+	Mantle{1.7.10-0.3.2.jenkins184} [Mantle] (Mantle-1.7.10-0.3.2.jar) Unloaded->Constructed->Pre-initialized
+	Natura{2.2.0} [Natura] (natura-1.7.10-2.2.0.1.jar) Unloaded->Constructed->Pre-initialized
+	BiblioWoodsNatura{1.5} [BiblioWoods Natura Edition] (BiblioWoods[Natura][v1.5].jar) Unloaded->Constructed->Pre-initialized
+	CoFHCore{1.7.10R3.0.0RC7} [CoFH Core] (CoFHCore-[1.7.10]3.0.0RC7-211.jar) Unloaded->Constructed->Pre-initialized
+	ThermalFoundation{1.7.10R1.0.0RC7} [Thermal Foundation] (ThermalFoundation-[1.7.10]1.0.0RC7-62.jar) Unloaded->Constructed->Pre-initialized
+	ThermalExpansion{1.7.10R4.0.0RC7} [Thermal Expansion] (ThermalExpansion-[1.7.10]4.0.0RC7-141.jar) Unloaded->Constructed->Pre-initialized
+	BigReactors{0.4.2A2} [Big Reactors] (BigReactors-0.4.2A2.jar) Unloaded->Constructed->Pre-initialized
+	AWWayofTime{v1.3.1} [Blood Magic: Alchemical Wizardry] (BloodMagic-1.7.10-1.3.1-7.jar) Unloaded->Constructed->Pre-initialized
+	Baubles{1.0.1.10} [Baubles] (Baubles-1.7.10-1.0.1.10.jar) Unloaded->Constructed->Pre-initialized
+	Thaumcraft{4.2.3.5} [Thaumcraft] (Thaumcraft-1.7.10-4.2.3.5.jar) Unloaded->Constructed->Pre-initialized
+	Botania{r1.2-104} [Botania] (Botania r1.2-104.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Core{6.4.11} [BuildCraft] (buildcraft-6.4.11.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Transport{6.4.11} [BC Transport] (buildcraft-6.4.11.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Silicon{6.4.11} [BC Silicon] (buildcraft-6.4.11.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Builders{6.4.11} [BC Builders] (buildcraft-6.4.11.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Energy{6.4.11} [BC Energy] (buildcraft-6.4.11.jar) Unloaded->Constructed->Errored
+	BuildCraft|Factory{6.4.11} [BC Factory] (buildcraft-6.4.11.jar) Unloaded->Constructed->Pre-initialized
+	BuildCraft|Compat{6.4.0} [BuildCraft Compat] (buildcraft-compat-6.4.2.jar) Unloaded->Constructed->Pre-initialized
+	CarpentersBlocks{3.3.5} [Carpenter's Blocks] (Carpenter's Blocks v3.3.5 - MC 1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	ChickenChunks{1.3.4.17} [ChickenChunks] (ChickenChunks-1.7.10-1.3.4.17-universal.jar) Unloaded->Constructed->Pre-initialized
+	TwilightForest{2.3.4} [The Twilight Forest] (twilightforest-1.7.10-2.3.4.jar) Unloaded->Constructed->Pre-initialized
+	UniversalElectricity{@MAJOR@.@MINOR@.@REVIS@} [Universal Electricity] (universal-electricity-4.0.0.9-core.jar) Unloaded->Constructed->Pre-initialized
+	ForgeMultipart{1.1.1.320} [Forge Multipart] (ForgeMultipart-1.7.10-1.1.1.320-universal.jar) Unloaded->Constructed->Pre-initialized
+	chisel{2.3.7.34} [Chisel 2] (Chisel2-2.3.7.34.jar) Unloaded->Constructed->Pre-initialized
+	Waila{1.5.10} [Waila] (Waila-1.5.10_1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	CompactMachines{1.7.10-1.10} [Compact Machines] (Compact-Machines-Mod-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	ComputerCraft{1.73} [ComputerCraft] (ComputerCraft1.73.jar) Unloaded->Constructed->Pre-initialized
+	props{1.12} [Decocraft] (Decocraft-v1.12b_1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	DraconicEvolution{1.0.1-snapshot_5} [Draconic Evolution] (Draconic-Evolution-1.7.10-v1.0.1-snapshot_5.jar) Unloaded->Constructed->Pre-initialized
+	eplus{3.0.2-d} [Enchanting Plus] (EnchantingPlus-1.7.10-3.0.2-d.jar) Unloaded->Constructed->Pre-initialized
+	Enchiridion{1.1} [Enchiridion] (Enchiridion-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	EnderStorage{1.4.5.27} [EnderStorage] (EnderStorage-1.7.10-1.4.5.27-universal.jar) Unloaded->Constructed->Pre-initialized
+	EnderZoo{1.7.10-1.0.9.18} [Ender Zoo] (EnderZoo-1.7.10-1.0.9.18.jar) Unloaded->Constructed->Pre-initialized
+	TConstruct{1.7.10-1.8.3.build919} [Tinkers' Construct] (TConstruct-1.7.10-1.8.3b.jar) Unloaded->Constructed->Pre-initialized
+	ExtraTiC{0.8.4} [ExtraTiC] (ExtraTiC-1.7.10-1.0.3.jar) Unloaded->Constructed->Pre-initialized
+	ExtraUtilities{1.2.2} [Extra Utilities] (extrautilities-1.2.2.jar) Unloaded->Constructed->Pre-initialized
+	ThaumicTinkerer{unspecified} [Thaumic Tinkerer] (ThaumicTinkerer-2.5-1.7.10-471.jar) Unloaded->Constructed->Pre-initialized
+	ForbiddenMagic{1.7.10-0.562} [Forbidden Magic] (Forbidden Magic-1.7.10-0.562.jar) Unloaded->Constructed->Pre-initialized
+	HardcoreEnderExpansion{1.8} [Hardcore Ender Expansion] (HardcoreEnderExpansion  MC-1.7.10  v1.8.jar) Unloaded->Constructed->Pre-initialized
+	iChunUtil{4.1.3} [iChunUtil] (iChunUtil-4.1.3.jar) Unloaded->Constructed->Pre-initialized
+	Hats{4.0.1} [Hats] (Hats-4.0.1.jar) Unloaded->Constructed->Pre-initialized
+	HatStand{4.0.0} [HatStand] (HatStand-4.0.0.jar) Unloaded->Constructed->Pre-initialized
+	headcrumbs{1.3.1} [Headcrumbs] (Headcrumbs-1.3.1.jar) Unloaded->Constructed->Pre-initialized
+	IC2NuclearControl{2.1.2a} [Nuclear Control 2] (IC2NuclearControl-2.1.2a.jar) Unloaded->Constructed->Pre-initialized
+	inpure|core{1.7.10R1.0.0B9} [INpureCore] (INpureCore-[1.7.10]1.0.0B9-54.jar) Unloaded->Constructed->Pre-initialized
+	inventorytweaks{1.58-147-645ca10} [Inventory Tweaks] (InventoryTweaks-1.58-147.jar) Unloaded->Constructed->Pre-initialized
+	IronChest{6.0.62.742} [Iron Chest] (ironchest-1.7.10-6.0.62.742-universal.jar) Unloaded->Constructed->Pre-initialized
+	JABBA{1.2.1} [JABBA] (Jabba-1.2.1a_1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	journeymap{5.0.1} [JourneyMap] (JourneyMap5.0.1_Unlimited_MC1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	LogisticsPipes{0.8.3.113} [Logistics Pipes] (logisticspipes-0.8.3.113.jar) Unloaded->Constructed->Pre-initialized
+	LunatriusCore{1.1.2.21} [LunatriusCore] (LunatriusCore-1.7.10-1.1.2.21-universal.jar) Unloaded->Constructed->Pre-initialized
+	Morph{0.9.1} [Morph] (Morph-Beta-0.9.1.jar) Unloaded->Constructed->Pre-initialized
+	Mystcraft{0.11.0.00} [Mystcraft] (mystcraft-1.7.10-0.11.0.00.jar) Unloaded->Constructed->Pre-initialized
+	NEIAddons{1.12.5.17} [NEI Addons] (neiaddons-mc1710-1.12.5.17.jar) Unloaded->Constructed->Pre-initialized
+	NEIAddons|Botany{1.12.5.17} [NEI Addons: Botany] (neiaddons-mc1710-1.12.5.17.jar) Unloaded->Constructed->Pre-initialized
+	NEIAddons|Forestry{1.12.5.17} [NEI Addons: Forestry] (neiaddons-mc1710-1.12.5.17.jar) Unloaded->Constructed->Pre-initialized
+	NEIAddons|CraftingTables{1.12.5.17} [NEI Addons: Crafting Tables] (neiaddons-mc1710-1.12.5.17.jar) Unloaded->Constructed->Pre-initialized
+	NEIAddons|ExNihilo{1.12.5.17} [NEI Addons: Ex Nihilo] (neiaddons-mc1710-1.12.5.17.jar) Unloaded->Constructed->Pre-initialized
+	neiintegration{1.0.7} [NEI Integration] (NEIIntegration-MC1.7.10-1.0.7.jar) Unloaded->Constructed->Pre-initialized
+	NetherOres{1.7.10R2.3.0RC4} [Nether Ores] (NetherOres-[1.7.10]2.3.0RC4-4.jar) Unloaded->Constructed->Pre-initialized
+	recipehandler{0.2} [NoMoreRecipeConflict] (NoMoreRecipeConflict-0.2(1.7.10).jar) Unloaded->Constructed->Pre-initialized
+	notenoughkeys{@MOD_VERSION@} [NotEnoughKEys] (NotEnoughKeys-1.7.10-1.0.0b29.jar) Unloaded->Constructed->Pre-initialized
+	neresources{0.1.0.95} [Not Enough Resources] (NotEnoughResources-1.7.10-0.1.0.95.jar) Unloaded->Constructed->Pre-initialized
+	OpenMods{0.6} [OpenMods] (OpenModsLib-1.7.10-0.6.jar) Unloaded->Constructed->Pre-initialized
+	OpenPeripheralCore{0.5.0} [OpenPeripheralCore] (OpenPeripheral-1.7.10-AIO-1.jar) Unloaded->Constructed->Pre-initialized
+	OpenPeripheral{0.2.0} [OpenPeripheralAddons] (OpenPeripheral-1.7.10-AIO-1.jar) Unloaded->Constructed->Pre-initialized
+	OpenBlocks{1.3} [OpenBlocks] (OpenBlocks-1.7.10-1.3.jar) Unloaded->Constructed->Pre-initialized
+	OpenPeripheralIntegration{0.1.0} [OpenPeripheralIntegration] (OpenPeripheral-1.7.10-AIO-1.jar) Unloaded->Constructed->Pre-initialized
+	harvestcraft{1.7.10g} [Pam's HarvestCraft] (Pam's HarvestCraft 1.7.10g.jar) Unloaded->Constructed->Pre-initialized
+	RandomThings{2.2.4} [Random Things] (RandomThings-2.2.4.jar) Unloaded->Constructed->Pre-initialized
+	rftools{2.71} [RFTools] (rftools-2.71.jar) Unloaded->Constructed->Pre-initialized
+	Roguelike{1.3.5} [Roguelike Dungeons] (roguelike-1.7.10-1.3.5.jar) Unloaded->Constructed->Pre-initialized
+	runicdungeons{1.1.0} [Runic Dungeons] (runicdungeons-1.1.0.jar) Unloaded->Constructed->Pre-initialized
+	ttCore{MC1.7.10-0.1.0-67} [ttCore] (ttCore-MC1.7.10-0.1.0-67.jar) Unloaded->Constructed->Pre-initialized
+	Sanguimancy{1.1.8} [Sanguimancy] (Sanguimancy Mod 1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	Schematica{1.7.5.117} [Schematica] (Schematica-1.7.10-1.7.5.117-universal.jar) Unloaded->Constructed->Pre-initialized
+	securitycraft{v1.7.0} [SecurityCraft] (SecurityCraft-Mod-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	simplyjetpacks{1.4.1} [Simply Jetpacks] (SimplyJetpacks-MC1.7.10-1.4.1.jar) Unloaded->Constructed->Pre-initialized
+	SolarFlux{1.7.10-0.4b} [Solar Flux] (Solar-Flux-Mod-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	SolarExpansion{1.4e} [Solar Expansion] (SolarExpansion-Basic-1.4f.jar) Unloaded->Constructed->Pre-initialized
+	SpecialMobs{3.0.2} [Special Mobs] (Special-Mobs-Mod-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	Stackie{1.5.1.32} [Stackie] (Stackie-1.7.10-1.5.1.32-universal.jar) Unloaded->Constructed->Pre-initialized
+	Tails{1.7.10-1.1.1} [Tails] (Tails-Mod-1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	thaumcraftneiplugin{1.7.10-1.7} [Thaumcraft NEI Plugin] (thaumcraftneiplugin-1.7.10-1.7.jar) Unloaded->Constructed->Pre-initialized
+	thaumicenergistics{0.8.9.0b-rv2} [Thaumic Energistics] (thaumicenergistics-0.8.9.0b-rv2.jar) Unloaded->Constructed->Pre-initialized
+	ThaumicExploration{0.6.0} [Thaumic Exploration] (ThaumicExploration-1.7.10-1.1-37.jar) Unloaded->Constructed->Pre-initialized
+	ThermalDynamics{1.7.10R1.0.0RC7} [Thermal Dynamics] (ThermalDynamics-[1.7.10]1.0.0RC7-98.jar) Unloaded->Constructed->Pre-initialized
+	TooMuchRain{%VERSION%} [TooMuchRain] (TooMuchRain-1.7.2-1.0.0-b5-universal.jar) Unloaded->Constructed->Pre-initialized
+	cookiecore{1.3.1} [Cookie Core] (CookieCore-1.7.10-1.3.1-5.jar) Unloaded->Constructed->Pre-initialized
+	TSteelworks{1.7.10-1.1.0} [Tinkers' Steelworks] (TSteelworks-1.7.10-1.1.0-13.jar) Unloaded->Constructed->Pre-initialized
+	WailaHarvestability{1.1.2} [Waila Harvestability] (WailaHarvestability-mc1.7.x-1.1.2.jar) Unloaded->Constructed->Pre-initialized
+	wawla{1.1.1} [What Are We Looking At] (Wawla-1.1.1_1.7.10.jar) Unloaded->Constructed->Pre-initialized
+	witchery{0.23.2} [Witchery] (witchery-1.7.10-0.23.2.jar) Unloaded->Constructed->Pre-initialized
+	WR-CBE|Core{1.4.1.9} [WR-CBE Core] (WR-CBE-1.7.10-1.4.1.9-universal.jar) Unloaded->Constructed->Pre-initialized
+	WR-CBE|Addons{1.4.1.9} [WR-CBE Addons] (WR-CBE-1.7.10-1.4.1.9-universal.jar) Unloaded->Constructed->Pre-initialized
+	WR-CBE|Logic{1.4.1.9} [WR-CBE Logic] (WR-CBE-1.7.10-1.4.1.9-universal.jar) Unloaded->Constructed->Pre-initialized
+	McMultipart{1.1.1.320} [Minecraft Multipart Plugin] (ForgeMultipart-1.7.10-1.1.1.320-universal.jar) Unloaded->Constructed->Pre-initialized
+	MrTJPCoreMod{1.0.5.11} [MrTJPCore] (MrTJPCore-1.7.10-1.0.5.11-universal.jar) Unloaded->Constructed->Pre-initialized
+	denseores{1.0} [Dense Ores] (denseores-1.5.jar) Unloaded->Constructed->Pre-initialized
+	ForgeMicroblock{1.1.1.320} [Forge Microblocks] (ForgeMultipart-1.7.10-1.1.1.320-universal.jar) Unloaded->Constructed->Pre-initialized
+	OpenModsLib crash transformers: [stencil_patches:FINISHED],[movement_callback:FINISHED],[map_gen_fix:FINISHED],[gl_capabilities_hook:FINISHED],[player_render_hook:FINISHED]
+	AE2 Version: beta rv2-beta-8 for Forge 10.13.2.1230
+	Mantle Environment: Environment healthy.
+	CoFHCore: -[1.7.10]3.0.0RC7-211
+	ThermalFoundation: -[1.7.10]1.0.0RC7-62
+	ThermalExpansion: -[1.7.10]4.0.0RC7-141
+	TConstruct Environment: Environment healthy.
+	NetherOres: Lacking version information.
+	ThermalDynamics: -[1.7.10]1.0.0RC7-98
+	List of loaded APIs: 
+		* API_NEK (1.0.0) from NotEnoughKeys-1.7.10-1.0.0b29.jar
+		* appliedenergistics2|API (rv2) from ThaumicTinkerer-2.5-1.7.10-471.jar
+		* Baubles|API (1.0.1.10) from Baubles-1.7.10-1.0.1.10.jar
+		* BloodUtils|API (1.0c) from Sanguimancy Mod 1.7.10.jar
+		* BotaniaAPI (8) from Botania r1.2-104.jar
+		* BuildCraftAPI|blueprints (1.2) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|boards (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|core (1.0) from SolarExpansion-Basic-1.4f.jar
+		* BuildCraftAPI|events (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|facades (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|filler (3.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|fuels (2.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|gates (4.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|items (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|power (1.3) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|recipes (2.1) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|robots (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|statements (1.0) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|tiles (1.1) from buildcraft-6.4.11.jar
+		* BuildCraftAPI|tools (1.0) from SolarExpansion-Basic-1.4f.jar
+		* BuildCraftAPI|transport (4.0) from buildcraft-6.4.11.jar
+		* ChiselAPI (0.0.2) from Chisel2-2.3.7.34.jar
+		* ChiselAPI|Carving (0.0.2) from Chisel2-2.3.7.34.jar
+		* CoFHAPI (1.7.10R1.0.0) from Compact-Machines-Mod-1.7.10.jar
+		* CoFHAPI|block (1.7.10R1.0.3) from SolarExpansion-Basic-1.4f.jar
+		* CoFHAPI|core (1.7.10R1.0.10) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHAPI|energy (1.7.10R1.0.2) from IC2NuclearControl-2.1.2a.jar
+		* CoFHAPI|fluid (1.7.10R1.0.10) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHAPI|inventory (1.7.10R1.0.10) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHAPI|item (1.7.10R1.0.10) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHAPI|items (1.7.10R1.0.3) from SolarExpansion-Basic-1.4f.jar
+		* CoFHAPI|modhelpers (1.7.10R1.0.3) from SolarExpansion-Basic-1.4f.jar
+		* CoFHAPI|tileentity (1.7.10R1.0.10) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHAPI|transport (1.7.10R1.0.3) from SolarExpansion-Basic-1.4f.jar
+		* CoFHAPI|world (1.7.10R1.0.3) from SolarExpansion-Basic-1.4f.jar
+		* CoFHLib (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|audio (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|gui (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|gui|container (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|gui|element (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|gui|element|listbox (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|gui|slot (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|inventory (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|render (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|render|particle (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|util (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|util|helpers (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|util|position (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|world (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* CoFHLib|world|feature (1.7.10R1.0.0RC7) from CoFHCore-[1.7.10]3.0.0RC7-211.jar
+		* ComputerCraft|API (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|FileSystem (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|Lua (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|Media (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|Peripheral (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|Redstone (1.73) from ComputerCraft1.73.jar
+		* ComputerCraft|API|Turtle (1.73) from ComputerCraft1.73.jar
+		* IC2API (1.0) from industrialcraft-2-2.2.695-experimental.jar
+		* inpure|api (1.7) from INpureCore-[1.7.10]1.0.0B9-54.jar
+		* MystcraftAPI (0.1) from mystcraft-1.7.10-0.11.0.00.jar
+		* neresources|API (1.0) from NotEnoughResources-1.7.10-0.1.0.95.jar
+		* NuclearControlAPI (v1.0.5) from IC2NuclearControl-2.1.2a.jar
+		* OpenPeripheralApi (2.2) from OpenPeripheral-1.7.10-AIO-1.jar
+		* SchematicaAPI (1.1) from Schematica-1.7.10-1.7.5.117-universal.jar
+		* SchematicaAPI|Events (1.0) from Schematica-1.7.10-1.7.5.117-universal.jar
+		* Thaumcraft|API (4.2.2.0) from Thaumcraft-1.7.10-4.2.3.5.jar
+		* TSteelworksAPI (1.1) from TSteelworks-1.7.10-1.1.0-13.jar
+		* WailaAPI (1.2) from Waila-1.5.10_1.7.10.jar
+	Stencil buffer state: Function set: GL30, pool: forge, bits: 8
